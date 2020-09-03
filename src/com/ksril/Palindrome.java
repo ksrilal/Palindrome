@@ -20,9 +20,14 @@ public class Palindrome {
             for(int gap=2;gap<n;gap++){
                 for(int i=0;i<n-gap;i++){
                     int j = gap + i;
-
-                    if(ch[i]==ch[j] && ch[i+1]==ch[j-1])
-                        p[i][j] = true;
+                    int k = 0;
+                    while (ch[i + k] == ch[j - k]) {
+                        if ((i+k)>(j-k)){
+                            p[i][j] = true;
+                            break;
+                        }
+                        k++;
+                    }
                 }
             }
         }
